@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Your own server",
+            "name": "localhost",
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
-            "server": "http://bcserver",
-            "serverInstance": "BC",
-            "authentication": "UserPassword",
+            "server": "http://localhost",
+            "serverInstance": "BC200",
+            "authentication": "Windows",
             "startupObjectId": 22,
             "startupObjectType": "Page",
             "breakOnError": true,
