@@ -1,5 +1,5 @@
 tableextension 50100 "CSD ResourceExt" extends Resource
-// CSD1.00 - 2018-01-01 - D. E. Veloper
+// LAB 5.1 TASK 1
 {
     fields
     {
@@ -9,19 +9,18 @@ tableextension 50100 "CSD ResourceExt" extends Resource
             
             begin
                 Rec.TestField("Unit Cost");
+                //Kontrollon neser eshte bosh unit cost
             end;
         }
-
-        modify(Type)
+        field(50105;"CSD Seminar Type"; Enum "CSD Seminar Type")
         {
-            OptionCaption='Instructor,Room';
+            DataClassification = ToBeClassified;
         }
-        field(50101; "CSD Resource Type ";Option)
+        field(50101; "CSD Resource Type ";Enum "CSD Resource Type")
         {
             Caption = 'Resource Type';
-            OptionMembers = "Internal","External","Nosi";
-            OptionCaption = 'Internal,External,Nosi';
         }
+        
 
         field(50102; "CSD Maximum Participants"; Integer)
         {

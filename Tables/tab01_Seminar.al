@@ -6,6 +6,7 @@ table 50101 "CSD Seminar"
     {
         field(10;"No."; Code[20])
         {
+            
             Caption = 'No.';
 
             trigger OnValidate()
@@ -17,6 +18,7 @@ table 50101 "CSD Seminar"
               end;  
             end;
             
+        
         }
         field(20; "Name"; Text[50])
         {
@@ -60,6 +62,7 @@ table 50101 "CSD Seminar"
             Caption = 'Comment';
             Editable= false;
             FieldClass = FlowField;
+            CalcFormula=exist("CSD Seminar Comment Line" where("Table Name"= const("Seminar"),"No."=Field("No.")));
         }
         field(100; "Seminar Price"; Decimal)
         {
@@ -158,17 +161,17 @@ table 50101 "CSD Seminar"
     procedure AssistEdit() :Boolean
     
     begin
-        with Seminar do begin
+
             //?
             Seminar:=Rec;
             SeminarSetup.get;
             SeminarSetup.TestField("Seminar Nos.");
             if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Nos."
-            ,xRec."No. Series","No. Series") then begin
-                NoSeriesMgt.SetSeries("No.");
+            ,xRec."No. Series",Seminar."No. Series") then begin
+                NoSeriesMgt.SetSeries(Seminar."No.");
                 Rec:=Seminar;
                 exit(true);
             end;
         end;
-    end;
+
 }

@@ -1,5 +1,5 @@
 pageextension 50101 "CSD ResourceListExt" extends "Resource List"
-// CSD1.00 - 2018-01-01 - D. E. Veloper
+//LAB 5.1 TASK 3
 {
     layout
     {
@@ -10,11 +10,11 @@ pageextension 50101 "CSD ResourceListExt" extends "Resource List"
         
         addafter(Type)
         {
-            field("CSD Resource Type ";"CSD Resource Type ")
+            field("CSD Resource Type ";Rec."CSD Resource Type ")
             {
 
             }
-            field("CSD Maximum Participants";"CSD Maximum Participants")
+            field("CSD Maximum Participants";Rec."CSD Maximum Participants")
             {
                 Visible = ShowMaxField;
             }
@@ -25,8 +25,8 @@ pageextension 50101 "CSD ResourceListExt" extends "Resource List"
     
     begin
         //?
-        ShowType:= (GetFilter(Type)='');
-        ShowMaxField:= (GetFilter(Type)= format(Type::Machine));
+        ShowType:= (Rec.GetFilter(Type)='');
+        ShowMaxField:= (Rec.GetFilter(Type)= format(Rec.Type::Machine));
     end;
 
     var

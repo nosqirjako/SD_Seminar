@@ -1,21 +1,23 @@
 pageextension 50100 "CSD ResourceCardExt" extends "Resource Card"
-// CSD1.00 - 2018-02-01 - D. E. Veloper
+// LAB 5.1 TASK 2
 {
     layout
     {
        addlast(General)
        {
         
-        field("CSD Resource Type ";"CSD Resource Type ")
+        field("CSD Resource Type";Rec."CSD Resource Type ")
+        {
+            ApplicationArea = All;
+        }
+        
+        field("CSD Quantity Per Day";Rec."CSD Quantity Per Day")
         {
 
         }
         
-        field("CSD Quantity Per Day";"CSD Quantity Per Day")
-        {
-
-        }
        }
+       // ku vendoset ky output nga kodi qe kemi shkruar ?
        addafter("Personal Data")
        {
         group("CSD Room")
@@ -23,8 +25,9 @@ pageextension 50100 "CSD ResourceCardExt" extends "Resource Card"
             Caption = 'Room';
             Visible = ShowMaxField;
 
-            field("CSD Maximum Participants";"CSD Maximum Participants")
+            field("CSD Maximum Participants"; Rec."CSD Maximum Participants")
             {
+                ApplicationArea = all;
 
             }
         }
@@ -36,7 +39,7 @@ pageextension 50100 "CSD ResourceCardExt" extends "Resource Card"
     trigger OnAfterGetRecord()
     
     begin
-        ShowMaxField := (Type = Type::Machine);
+        ShowMaxField := (Rec.Type = Rec.Type::Machine);
         CurrPage.Update(false);
     end;
     var

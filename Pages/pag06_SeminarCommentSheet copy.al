@@ -12,18 +12,21 @@ page 50106 "CSD Seminar Comment Sheet"
         {
             repeater(group)
             {
-                field(Date;Date)
+                field(Date;Rec.Date)
                 {
-                    Caption = 'Date';            
+                    Caption = 'Date'; 
+                    ApplicationArea = all;           
                 }
-                field(Code;Code)
+                field(Code;Rec.Code)
                 {
                     Caption = 'Code';
                     Visible = false;
+                    ApplicationArea = all;
                 }
-                field(Comment;Comment)
+                field(Comment;Rec.Comment)
                 {
                     Caption = 'Comment';
+                    ApplicationArea = all;
                 }
             }
         }

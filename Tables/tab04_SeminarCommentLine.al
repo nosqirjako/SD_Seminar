@@ -6,12 +6,9 @@ table 50104 "CSD Seminar Comment Line"
     
     fields
     {
-        field(10;"Table Name"; Option)
+        field(10;"Table Name"; Enum "CSD Seminar Comment")
         {
             Caption = 'Table Name';
-            OptionMembers = "Seminar","Seminar Registration Header", "Posted Seminar Reg. Header"; 
-            OptionCaption = 'Seminar, Seminar Registration, Posted Seminar Registration'; 
-            
         }
         field(20; "Document Line No."; Integer)
         {
@@ -21,7 +18,8 @@ table 50104 "CSD Seminar Comment Line"
         {
             Caption = 'No.';
             //?
-            TableRelation= if("Table Name" = const(Seminar)) "CSD Seminar";
+            TableRelation= if("Table Name" = const(Seminar)) "CSD Seminar"
+            else if ("Table Name"= const("Seminar Registration Header")) "CSD Seminar Reg. Header";
         }
         field(40; "Line No."; Integer)
         {
@@ -72,5 +70,17 @@ table 50104 "CSD Seminar Comment Line"
     begin
         
     end;
-    
+
+procedure SetupNewLine()
+var
+    SeminarCommentLine: Record "CSD Seminar Comment Line";
+begin
+    SeminarCommentLine.SetRange("Table Name","Table Name");
+    SeminarCommentLine.SetRange("No.","No.");
+    SeminarCommentLine.SetRange("Document Line No.","Document Line No.");
+    SeminarCommentLine.SetRange(Date,WorkDate());
+    if SeminarCommentLine.IsEmpty then
+    Date:=WorkDate;
+end;
+
 }

@@ -14,25 +14,26 @@ page 50102 "CSD Seminar List"
         {
             repeater(Group)
             {
-                field("No.";"No.")
+                field("No.";Rec."No.")
                 {
                     
                 }
-                field(Name;Name)
+                field(Name;Rec.Name)
                 {
-
+                    ApplicationArea = all;
                 }
-                field("Seminar Duration";"Seminar Duration")
+                field("Seminar Duration";Rec."Seminar Duration")
                 {
-
+                    ApplicationArea = all;
                 }
-                field("Minimum Participants";"Minimum Participants")
+                field("Minimum Participants";Rec."Minimum Participants")
                 {
-
+                    ApplicationArea = all;
                 }
-                field("Maximum Participants";"Maximum Participants")
+                field("Maximum Participants";Rec."Maximum Participants")
                 {
-                    
+                    ApplicationArea = all;
+                   
                 }
             }
         }
@@ -42,7 +43,7 @@ page 50102 "CSD Seminar List"
         {
             systempart("Links";Links)
             {
-
+                
             }
             systempart("Notes";Notes)
             {
