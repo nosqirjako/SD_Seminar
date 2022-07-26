@@ -122,7 +122,7 @@ page 50110 "CSD Seminar Registration"
             }
             systempart("Links";Links)
             {
-            }
+            
             systempart("Notes";Notes)
             {
             }
